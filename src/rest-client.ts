@@ -2934,6 +2934,6 @@ export class RestClient extends BaseRestClient {
   getFiatWithdrawnPaymentMethods(
     params: GetFiatWithdrawnPaymentMethodsRequest,
   ): Promise<FiatWithdrawnPaymentMethodsResponse[]> {
-    return this.getPrivate('/api/v5/fiat/withdrawal-payment-methods', params);
+    return this.getPrivate('/api/v5/fiat/withdrawal-payment-methods?ccy=' + params.ccy);
   }
 }
