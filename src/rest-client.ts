@@ -55,6 +55,7 @@ import {
   SetCTBatchLeverageRequest,
 } from './types/rest/request/copy-trading.js';
 import {
+  GetFiatWithdrawnPaymentMethodsRequest,
   CancelFiatWithdrawnRequest,
   DetailWithdrawnFiatRequest,
   GetHistoricalFiatWithdrawnRequest,
@@ -142,6 +143,7 @@ import {
   OrderRequest,
 } from './types/rest/request/trade.js';
 import {
+  FiatWithdrawnPaymentMethodsResponse,
   CancelFiatWithdrawnResponse,
   DetailWithdrawnFiatResponse,
   FiatWithdrawnResponse,
@@ -2927,5 +2929,11 @@ export class RestClient extends BaseRestClient {
     params: DetailWithdrawnFiatRequest,
   ): Promise<DetailWithdrawnFiatResponse[]> {
     return this.getPrivate('/api/v5/fiat/withdrawal', params);
+  }
+
+  getFiatWithdrawnPaymentMethods(
+    params: GetFiatWithdrawnPaymentMethodsRequest,
+  ): Promise<FiatWithdrawnPaymentMethodsResponse[]> {
+    return this.getPrivate('/api/v5/fiat/withdrawal-payment-methods', params);
   }
 }
