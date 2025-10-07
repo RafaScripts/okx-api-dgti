@@ -41,3 +41,31 @@ export interface DetailWithdrawnFiatResponse {
   cTime: string;
   uTime: string;
 }
+
+export interface FiatWithdrawnPaymentMethodsResponse {
+  ccy: string;
+  paymentMethod: string;
+  feeRate: string;
+  minFee: string;
+  limits: {
+    dailyLimit: string;
+    dailyLimitRemaining: string;
+    weeklyLimit: string;
+    weeklyLimitRemaining: string;
+    monthlyLimit: string;
+    monthlyLimitRemaining: string;
+    minAmt: string;
+    maxAmt: string;
+    lifetimeLimit: string;
+  };
+  accounts: [
+    {
+      paymentAcctId: string;
+      acctNum: string;
+      recipientName: string;
+      bankName: string;
+      bankCode: string;
+      state: string;
+    },
+  ];
+}

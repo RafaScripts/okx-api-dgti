@@ -22,3 +22,7 @@ export interface GetHistoricalFiatWithdrawnRequest {
 export interface DetailWithdrawnFiatRequest {
   ordId: string;
 }
+
+export interface GetFiatWithdrawnPaymentMethodsRequest {
+  ccy: string;
+}
