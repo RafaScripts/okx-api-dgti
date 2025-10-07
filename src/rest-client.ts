@@ -2909,15 +2909,21 @@ export class RestClient extends BaseRestClient {
     return this.postPrivate('/api/v5/fiat/create-withdrawal', params);
   }
 
-  cancelFiatWithdrawn(params: CancelFiatWithdrawnRequest): Promise<CancelFiatWithdrawnResponse[]> {
+  cancelFiatWithdrawn(
+    params: CancelFiatWithdrawnRequest,
+  ): Promise<CancelFiatWithdrawnResponse[]> {
     return this.postPrivate('/api/v5/fiat/cancel-withdrawal', params);
   }
 
-  getFiatWithdrawnHistory(params: HistoricalFiatWithdrawnResponse): Promise<HistoricalFiatWithdrawnResponse[]> {
+  getFiatWithdrawnHistory(
+    params: HistoricalFiatWithdrawnResponse,
+  ): Promise<HistoricalFiatWithdrawnResponse[]> {
     return this.getPrivate('/api/v5/fiat/withdrawal-order-history', params);
   }
 
-  getFiatDetailsWithdrawn(params: DetailWithdrawnFiatRequest): Promise<DetailWithdrawnFiatResponse[]> {
-    return this.getPrivate('/api/v5/fiat/withdrawal', params);  
+  getFiatDetailsWithdrawn(
+    params: DetailWithdrawnFiatRequest,
+  ): Promise<DetailWithdrawnFiatResponse[]> {
+    return this.getPrivate('/api/v5/fiat/withdrawal', params);
   }
 }

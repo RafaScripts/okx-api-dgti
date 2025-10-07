@@ -13,6 +13,7 @@
     "build:watch": "npm run clean && tsc --watch",
     "pack": "webpack --config webpack/webpack.config.js",
     "lint": "eslint src",
+    "prettier": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "prepublish": "npm run build:clean",
     "betapublish": "npm publish --tag beta"
   },
