@@ -55,6 +55,12 @@ import {
   SetCTBatchLeverageRequest,
 } from './types/rest/request/copy-trading.js';
 import {
+  CancelFiatWithdrawnRequest,
+  DetailWithdrawnFiatRequest,
+  GetHistoricalFiatWithdrawnRequest,
+  WithdrawnFiatRequest,
+} from './types/rest/request/fiat.js';
+import {
   FundingRateRequest,
   FundsTransferRequest,
   GetDepositWithdrawStatusRequest,
@@ -135,6 +141,12 @@ import {
   OrderPrecheckRequest,
   OrderRequest,
 } from './types/rest/request/trade.js';
+import {
+  CancelFiatWithdrawnResponse,
+  DetailWithdrawnFiatResponse,
+  FiatWithdrawnResponse,
+  HistoricalFiatWithdrawnResponse,
+} from './types/rest/response/fiat.js';
 import {
   AccountBalance,
   AccountBill,
@@ -308,18 +320,6 @@ import {
   PosMode,
   TimestampObject,
 } from './types/rest/shared.js';
-import {
-  WithdrawnFiatRequest,
-  CancelFiatWithdrawnRequest,
-  GetHistoricalFiatWithdrawnRequest,
-  DetailWithdrawnFiatRequest,
-} from './types/rest/request/fiat.js';
-import {
-  FiatWithdrawnResponse,
-  CancelFiatWithdrawnResponse,
-  HistoricalFiatWithdrawnResponse,
-  DetailWithdrawnFiatResponse,
-} from './types/rest/response/fiat.js';
 import BaseRestClient from './util/BaseRestClient.js';
 
 export class RestClient extends BaseRestClient {
@@ -2905,7 +2905,9 @@ export class RestClient extends BaseRestClient {
     return this.postPrivate('/api/v5/broker/nd/subaccount/apikey', params);
   }
 
-  submitFiatWithdrawn(params: WithdrawRequest): Promise<WithdrawResponse[]> {
+  submitFiatWithdrawn(
+    params: WithdrawnFiatRequest,
+  ): Promise<FiatWithdrawnResponse[]> {
     return this.postPrivate('/api/v5/fiat/create-withdrawal', params);
   }
 
@@ -2916,7 +2918,7 @@ export class RestClient extends BaseRestClient {
   }
 
   getFiatWithdrawnHistory(
-    params: HistoricalFiatWithdrawnResponse,
+    params: GetHistoricalFiatWithdrawnRequest,
   ): Promise<HistoricalFiatWithdrawnResponse[]> {
     return this.getPrivate('/api/v5/fiat/withdrawal-order-history', params);
   }
